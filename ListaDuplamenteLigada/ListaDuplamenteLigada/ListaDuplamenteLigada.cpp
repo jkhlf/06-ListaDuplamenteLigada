@@ -121,7 +121,6 @@ void exibirElementos()
 
 void inserirElemento()
 {
-	// aloca memoria dinamicamente para o novo elemento
 	NO* novo = (NO*)malloc(sizeof(NO));
 	if (novo == NULL)
 	{
@@ -147,7 +146,6 @@ void inserirElemento()
 }
 
 
-// funções a serem implementadas no exericio
 void exibirReverso()
 {
 	if (ultimo == NULL) {
@@ -164,7 +162,7 @@ void exibirReverso()
 
 void excluirPrimeiroElemento()
 {
-	if (ultimo == NULL) {
+	if (primeiro == NULL) {
 		cout << "Lista vazia " << endl;
 		return;
 	}
@@ -176,7 +174,7 @@ void excluirPrimeiroElemento()
 	else {
 		ultimo = NULL;
 	}
-	delete paraExcluir;
+	free(paraExcluir);
 	cout << " Primeiro elemento excluido" << endl;
 
 }
@@ -190,12 +188,12 @@ void excluirUltimoElemento()
 	NO* paraExcluir = ultimo;
 	ultimo = ultimo->ant;
 	if (ultimo != NULL) {
-		ultimo->ant = NULL;
+		ultimo->prox= NULL;
 	}
 	else {
 		primeiro = NULL;
 	}
-	delete paraExcluir;
+	free(paraExcluir);
 	cout << " Ultimo elemento excluido" << endl;
 }
 
